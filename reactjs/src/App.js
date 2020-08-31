@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
+import Homepage from './components/Homepage'
+import HelloWorld from './components/HelloWorld'
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,NavLink
+  } from "react-router-dom"; //npm install react-router-dom , we use this to route between pages
 import './App.css';
+const  App= () => {
+    return   <Router>
+    <div >
+      <div className="bNavbar">
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/HelloWorld">HelloWorld</Link>
+          </li>
+          </ul>
+        </nav>
+      </div>
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* A <Switch> looks through its children <Route>s and
+          renders the first one that matches the current URL. */}
+      <Switch>
+        <Route exact path="/" component={Homepage}/>
+        <Route path="/HelloWorld" component={HelloWorld} />
+       {/* this is anotherway */}
+         {/* <Route path="/homepage">
+          <Homepage />
+        </Route>
+        <Route path="/">
+        </Route>  */}
+      </Switch>
     </div>
-  );
+  </Router>
 }
-
+ 
 export default App;
