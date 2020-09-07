@@ -12,8 +12,8 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-.bNavbar{
-  float:left;
+.bNavbar {
+  float: left;
   width: 20%;
 }
 .App-header {
